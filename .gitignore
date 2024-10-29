@@ -4,3 +4,8 @@ include
 lib
 pyvenv.cfg
 share
+.venv
+dist
+build
+barcode_localizer.egg-info
+*.png
