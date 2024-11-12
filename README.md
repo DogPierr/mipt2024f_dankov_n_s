@@ -25,14 +25,14 @@
 
 В общем мега имбовая стать на эту тему [Brylka, R., Schwanecke, U., & Bierwirth, B. (2020). Camera Based Barcode Localization and Decoding in Real-World Applications. 2020 International Conference on Omni-Layer Intelligent Systems (COINS)](https://sci-hub.ru/https://ieeexplore.ieee.org/abstract/document/9191416).
 
-# Bounding box
+# Текущие результаты
+Прикольная [статья](https://pyimagesearch.com/2014/11/24/detecting-barcodes-images-python-opencv/) про имплементацию алгоритма, основанном на примении различных фильтров с помощью сверток. На текущий момент, алгоритм либо хорошо выделяет только вертикальные штрихкоды, либо только горизонтальные.
 
-Тут уже интереснее. Есть интересная [статья](https://web.archive.org/web/20140602071142id_/http://www.fit.vutbr.cz:80/~herout/papers/2012-SCCG-QRtiles.pdf) про локализацию qr-кодов с помощью преобразования Хафа. Так же какая-то информация имеется на [статье](https://smartengines.medium.com/qr-code-localization-the-important-recognition-step-that-has-been-neglected-8b3ed4e8037) от самих Smart Engines.
-
-Но общий подход предполагается с использованием нейросетки YOLO, так как она хорошо справляется с задачей детекции объектов как на статических картинках, так и на видеороликах. Вот [пример](https://www.dynamsoft.com/codepool/qr-code-detect-decode-yolo-opencv.html) имплементации.
+![](images/output.png)
+![](images/2.png)
 
 ## 01.10.2024
-IoU плохо, так как есть union, а нам надо чтобы весь QR попал в BB.
+IoU плохо, так как ес
 
 Как нужно обходить QR при точной локализации
 
