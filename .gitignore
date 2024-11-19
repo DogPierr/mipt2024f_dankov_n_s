@@ -9,3 +9,5 @@ dist
 build
 barcode_localizer.egg-info
 *.png
+src/tests/__pycache__
+output
