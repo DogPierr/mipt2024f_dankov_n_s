@@ -104,6 +104,7 @@ def test_detect_object_and_calculate_iou(conf: str, dir_imgs: str, output: str):
         assert points is not None
 
         iou = calculate_iou(relative_polygon, points, box_image)
+        cv2.imwrite(os.path.join(output, dir_name, "start.jpg"), box_image)
 
         cv2.drawContours(box_image, np.array([relative_polygon], dtype=np.int32), -1, (0, 0, 255), 1)
         cv2.drawContours(box_image, np.array([points], dtype=np.int32), -1, (0, 255, 0), 1)
