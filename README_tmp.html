@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%D1%82%D0%BE%D1%87%D0%BD%D0%B0%D1%8F-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%B1%D0%B0%D1%80-%D0%BA%D0%BE%D0%B4%D0%B0">Точная локализация бар-кода</h1>
+<p>Точная локализация бар-кодов. Необходимо проработать алгоритм, который выделяет на изображении праильно ориентированную границу бар-кода, при этом на изображении он должен быть только один (то есть после грубой локализации баркодов).</p>
+<p><strong>P.S</strong>: Правильная ориентация определяется двумя условиями:</p>
+<ol>
+<li>Бар-код находится слева от границы при обходе контура.</li>
+<li>Первая точка границы - левая нижняя точка, если бы бар-код был бы эталонным.</li>
+</ol>
+<h1 id="api">API</h1>
+<ul>
+<li><strong>Входные данные:</strong> Карта Instance segmentation. То есть, отображение вида <code>R x R -&gt; N + {0}</code> в виде двумерного массива, где каждый элемент обозначает принадлежность соответствующего пикселя к <code>i-ому</code> бар-коду.</li>
+<li><strong>Выходные данные:</strong> Массив, вида, который обозначает границы:</li>
+</ul>
+<pre class="hljs"><code><div>List[Tuple(uint, uint)]
+</div></code></pre>
+<h1 id="%D1%82%D0%BE%D1%87%D0%BD%D0%B0%D1%8F-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">Точная локализация</h1>
+<p>Задача, на текущий момент, может решаться двумя способами:</p>
+<ol>
+<li>Использовать результаты сегментации, найти положительно ориентированный контур выделенного бар-кода.</li>
+<li>Использовать алгоритмический подход, основанный на различных фильтрах (аналогично алгоритму <a href="https://en.wikipedia.org/wiki/Canny_edge_detector">Canny</a>).</li>
+</ol>
+<p>Так как первый способ требует готового сегментатора, в этом отчете сосредоточимся на втором.</p>
+<h3 id="%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC-1">Алгоритм 1</h3>
+<p>Рассмотрим работу алгоритма на следующем примере:</p>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/img.jpg" alt=""></p>
+<p>Алгоритм состоит из нескольких шагов:</p>
+<ol>
+<li>Найти на изображении &quot;градиенты&quot; каждого пикселя, с помощью фильтра <a href="https://ru.wikipedia.org/wiki/%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80_%D0%A1%D0%BE%D0%B1%D0%B5%D0%BB%D1%8F">Собеля</a>, предварительно сделав изображение черно-белым</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/gradient.jpg" alt=""></p>
+<ol start="2">
+<li>Заблюрить изображение фильтром Гаусса, чтобы сгладить области с большими перепадами градиентов, а затем применить фильтр thresh, который считает все пиксели белыми, если их яркость превышает заданный порог (в алгоритме = 210).</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/thresh.jpg" alt=""></p>
+<ol start="3">
+<li>Как видно, на изображении заметны &quot;дырки&quot;, которые прямоугольным ядром, дозаполняются.</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/closed.jpg" alt=""></p>
+<ol start="4">
+<li>Затем, выделятся замкнутый контур, наибольший по площади, тем самым получается результирующая картинка.</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/img.jpg" alt=""></p>
+<p>Для метрики, в качестве очень базовой оценки, используется Intersection over Union (IoU).</p>
+<h3 id="%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC-2">Алгоритм 2</h3>
+<p>Алгоритм основывается на HOG (Histogram of Oriented Gradients). Он работает за счет анализа распределения направленных градиентов (изменений интенсивности пикселей) в различных частях изображения.</p>
+<p>Пока алгоритм работает только для QR-ов. Модификация для бар кодов должна быть похожей.</p>
+<ol>
+<li>
+<p>Предобработка, входное изображение преобразуется в градации серого.</p>
+</li>
+<li>
+<p>Построение гистограммы направленных градиентов, изображение делится на небольшие ячейки (tiles). Для каждой ячейки создается гистограмма направлений градиентов. Каждое направление (например, 0°, 45°, 90° и т.д.) получает значение, пропорциональное величине градиента в соответствующем направлении.</p>
+</li>
+<li>
+<p>В каждом тайле выделяются два доминантных направления (то есть те два направления, которые в гистограмме имеют наибольшие значения). Затем считается вероятность того, что данный тайл принадлежит qr-коду по формуле:
+$$
+p = \left( 1  -\frac{||\theta_1 - \theta_2| - \frac{\pi}{2}|}{\frac{\pi}{2}}\right) \cdot \frac{2 \cdot min(\theta_1, \theta_2)}{\theta_1 + \theta_2}
+$$
+где первое слагаемое отвечает за близость разницы углов к 90 градусам, а второе отвечает за то, что в гистограмме значения близки.</p>
+</li>
+<li>
+<p>Выбираются тайлы с значениями вероятности превышающими порог, а затем тайлы, вероятность которых чуть меньше, также добавляются, если их соседи включены</p>
+</li>
+<li>
+<p>Строим выпуклую оболочку получившегося множества, получаем границу.
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/hog.png" alt=""></p>
+</li>
+</ol>
+<h3 id="%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC-3">Алгоритм 3</h3>
+<ol>
+<li>
+<p>Для каждого пикселя картинки, считаем дисперсию в окне некоторого размера, причем данный пиксель является его центром.</p>
+</li>
+<li>
+<p>Выделям, с помощью некоторого те пикксели, дисперсия окна которых больше некоторого порога. Это будут пиксели, которые с большой вероятностью принадлежат бар-коду.</p>
+</li>
+<li>
+<p>В центре картинки выделяем область в центре, в виде круга, которую мы будем считать принадлежащей бар-коду.</p>
+</li>
+<li>
+<p>Из полученного круга, с помощью bfs, ищем все пиксели, с достаточно высокой дисперсией, которые лежат в одной области связанности с изначальным кругом.</p>
+</li>
+<li>
+<p>Обрамляем выделенную область в четырехугольник.</p>
+</li>
+</ol>
+<p>Таким алгоритмом получается добиться в среднем <strong>IoU = 0.659</strong>.</p>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_1.png" alt="">
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_2.png" alt="">
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_3.png" alt="">
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_4.png" alt="">
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_5.png" alt="">
+<img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/res_6.png" alt=""></p>
+<h1 id="%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B">Текущие проблемы</h1>
+<ol>
+<li>Не очень понятно, как корректно выбирать пороги и параметры всех использующих фильтров. Например, на плохо контрастирующей картинке, по-хорошему нужно подбирать порог, исходя ис значения максимального градиента. Или, при процессе &quot;дозаполнения всех дырок&quot; в 3 пункте алгоритма, алгоритм плохо показывает себя на вертикально повернутых штрихкодах</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/image.png" alt=""></p>
+<ol start="2">
+<li>Плохо работает на QR-кодах, нужно думать либо о модификации алгоритма, либо придумывать что-то другое.</li>
+</ol>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/qr.jpg" alt=""></p>
+<h1 id="%D1%82%D0%B5%D0%BA%D1%83%D1%89%D0%B8%D0%B5-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B">Текущие результаты</h1>
+<p>Результаты по всему обучающему датасету можно посмотреть, запустив <code>test.py</code>. Тут представленна лишь маленькая часть выборки:</p>
+<p><img src="file:///Users/dankovns/study/mipt2024f_dankov_n_s/images/sample.png" alt=""></p>
+<h1 id="%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%D1%83">Инструкция по запуску</h1>
+<h2 id="%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B5%D0%B9">Установка зависимостей</h2>
+<p>Установить все необходимые пакеты можно следующей командой:</p>
+<pre class="hljs"><code><div>pip install -r requirements.txt
+</div></code></pre>
+<h2 id="%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0">Запуск скрипта</h2>
+<p>Скрипт возвращает картинку, с выделенной границей</p>
+<pre class="hljs"><code><div>python main.py -i /path/to/image -o /path/to/output
+
+- -i, --image: Required. The path to the input image.
+- -o, --output: Optional. The path to save the output image. Defaults to 'res.png' if not provided.
+</div></code></pre>
+<h2 id="%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2">Запуск тестов</h2>
+<p>Скрипт, который по тестовому датасету выделяет границы на всех изображениях, при этом также возращает промежуточные результаты работы фильтров.</p>
+<pre class="hljs"><code><div>python test.py -c annotations.json -d training_data -o output
+
+- -c: Path to VGG annotator config
+- -d: Path to corresponding training dataset
+- -o: Path to output the images with contours of bar-codes
+</div></code></pre>
+<h1 id="%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE-%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%82%D0%BA%D0%B5">Состояние по разметке</h1>
+<p>На текущий момент размечено <strong>60</strong> картинок, содержащие <code>ean-13</code>, <code>qr</code>, <code>datamatrix</code> и некоторые более редкие виды одномерных и двумерных баркодов.</p>
+
+</body>
+</html>
